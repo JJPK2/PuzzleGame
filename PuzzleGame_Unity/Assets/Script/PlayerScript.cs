@@ -16,22 +16,21 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.W) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(rb.velocity.x, 5, 10);
+            rb.velocity = new Vector3(rb.velocity.x, 5, 9.85f);
         }
         if(Input.GetKeyDown(KeyCode.A) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(-10, 5, rb.velocity.z);
+            rb.velocity = new Vector3(-9.85f, 5, rb.velocity.z);
         }
         if(Input.GetKeyDown(KeyCode.S) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(rb.velocity.x, 5, -10);
+            rb.velocity = new Vector3(rb.velocity.x, 5, -9.85f);
         }
         if(Input.GetKeyDown(KeyCode.D) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(10, 5, rb.velocity.z);
+            rb.velocity = new Vector3(9.85f, 5, rb.velocity.z);
         }
-
     }
 
     void OnCollisionEnter(Collision coll){
-        GameObject collidedWith = coll.gameObject;
+        //GameObject collidedWith = coll.gameObject;
         if(coll.gameObject.layer == 7){
             rb.velocity = new Vector3(0, 0, 0);
         }

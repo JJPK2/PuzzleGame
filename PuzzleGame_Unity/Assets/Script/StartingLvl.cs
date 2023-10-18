@@ -14,8 +14,10 @@ public class StartingLvl : MonoBehaviour
     }
 
     // Update is called once per frame
-    /*void Update()
+    void Update()
     {
-        
-    }*/
+        if(playerStart.transform.position.y <= -20f){
+            playerStart.transform.position = new Vector3(start_X_Position, 3, start_Z_Position);
+        }   
+    }
 }

@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GoalFloor : MonoBehaviour
+public class BlockScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int nextLvl;
-    /*void Start()
+    private Rigidbody rb;
+    void Start()
     {
         
     }
@@ -16,12 +15,12 @@ public class GoalFloor : MonoBehaviour
     void Update()
     {
         
-    }*/
-
+    }
     void OnCollisionEnter(Collision coll){
         GameObject collidedWith = coll.gameObject;
-        if(collidedWith.CompareTag("Player")){
-            SceneManager.LoadScene("Level_" + nextLvl);
+        if(collidedWith.CompareTag("Wall")){
+            rb = GetComponent<Rigidbody>();
+            rb.isKinematic = true;
         }
     }
 }
