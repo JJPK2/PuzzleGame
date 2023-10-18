@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Invert_Floor
   layers:
   - Default
   - TransparentFX

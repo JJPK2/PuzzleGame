@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody rb;
-
     // Start is called before the first frame update7
     void Start()
     {
@@ -27,6 +26,7 @@ public class PlayerScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.D) && rb.velocity.y == 0) {
             rb.velocity = new Vector3(9.85f, 5, rb.velocity.z);
         }
+
     }
 
     void OnCollisionEnter(Collision coll){
