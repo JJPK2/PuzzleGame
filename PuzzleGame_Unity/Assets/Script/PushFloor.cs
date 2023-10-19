@@ -5,8 +5,8 @@ using UnityEngine;
 public class PushFloor : MonoBehaviour
 {
     public GameObject playerPushed;
-    public int xVel;
-    public int zVel;
+    public float xVel;
+    public float zVel;
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()

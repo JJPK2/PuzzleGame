@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     private Rigidbody rb;
+    private bool inversion = false;
     // Start is called before the first frame update7
     void Start()
     {
@@ -14,18 +15,35 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(rb.velocity.x, 5, 9.85f);
+        if(inversion == false){
+            if(Input.GetKeyDown(KeyCode.W) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(rb.velocity.x, 5, 9.85f);
+            }
+            if(Input.GetKeyDown(KeyCode.A) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(-9.85f, 5, rb.velocity.z);
+            }
+            if(Input.GetKeyDown(KeyCode.S) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(rb.velocity.x, 5, -9.85f);
+            }
+            if(Input.GetKeyDown(KeyCode.D) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(9.85f, 5, rb.velocity.z);
+            }
+        } else {
+            if(Input.GetKeyDown(KeyCode.S) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(rb.velocity.x, 5, 9.85f);
+            }
+            if(Input.GetKeyDown(KeyCode.D) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(-9.85f, 5, rb.velocity.z);
+            }
+            if(Input.GetKeyDown(KeyCode.W) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(rb.velocity.x, 5, -9.85f);
+            }
+            if(Input.GetKeyDown(KeyCode.A) && rb.velocity.y == 0) {
+                rb.velocity = new Vector3(9.85f, 5, rb.velocity.z);
+            }
         }
-        if(Input.GetKeyDown(KeyCode.A) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(-9.85f, 5, rb.velocity.z);
-        }
-        if(Input.GetKeyDown(KeyCode.S) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(rb.velocity.x, 5, -9.85f);
-        }
-        if(Input.GetKeyDown(KeyCode.D) && rb.velocity.y == 0) {
-            rb.velocity = new Vector3(9.85f, 5, rb.velocity.z);
-        }
+        
+        
 
     }
 
@@ -33,6 +51,12 @@ public class PlayerScript : MonoBehaviour
         //GameObject collidedWith = coll.gameObject;
         if(coll.gameObject.layer == 7){
             rb.velocity = new Vector3(0, 0, 0);
+        }
+        if(coll.gameObject.CompareTag("Invert_Floor")){
+            inversion = true;
+        } 
+        if(coll.gameObject.CompareTag("Finish")){
+            inversion = false;
         }
     }
     

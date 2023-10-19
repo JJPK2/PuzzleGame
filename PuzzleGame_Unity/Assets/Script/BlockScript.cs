@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlockScript : MonoBehaviour
 {
@@ -22,5 +23,14 @@ public class BlockScript : MonoBehaviour
             rb = GetComponent<Rigidbody>();
             rb.isKinematic = true;
         }
+        if(collidedWith.CompareTag("Player")){
+            Invoke("RestartScene", 1f);
+        }
+    }
+
+    void RestartScene(){
+        TimerFloorScript.resetTime();
+        TimerFloorScript.startCountDown = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
