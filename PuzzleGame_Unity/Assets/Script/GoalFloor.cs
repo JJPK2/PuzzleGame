@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GoalFloor : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int nextLvl;
+    public string nextLvl;
     /*void Start()
     {
         

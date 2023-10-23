@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TimerFloorScript : MonoBehaviour
 {
-    static public float timeCountDown = 20.0f;
+    static public float timeCountDown = 22.0f;
     static public bool startCountDown = false;
     public GameObject showTimer; 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class TimerFloorScript : MonoBehaviour
             timeCountDown -= Time.deltaTime;
         }
         if(timeCountDown < 0){
-            timeCountDown = 20.0f;
+            timeCountDown = 22.0f;
             startCountDown = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -45,7 +45,7 @@ public class TimerFloorScript : MonoBehaviour
     
     static public void resetTime()
     {
-        timeCountDown = 20.0f;
+        timeCountDown = 22.0f;
     }
 
     static public bool getStartCountDown()
