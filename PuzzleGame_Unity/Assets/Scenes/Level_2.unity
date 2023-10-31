@@ -1177,7 +1177,6 @@ MonoBehaviour:
   start_X_Position: -30
   start_Z_Position: 10
   playerStart: {fileID: 2037272254}
-  currentLvl: 2
 --- !u!81 &2085051851
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1213,7 +1212,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
